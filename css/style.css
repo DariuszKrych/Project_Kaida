@@ -12,7 +12,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    background-size: cover 120%;
+    background-size: cover;
   }
 
 #page_top, #page_middle, #page_bottom{
@@ -41,6 +41,7 @@
 }
 
 :root {
+    color-scheme: light;
     --my_green: rgb(40, 184, 93);
     --my_blue: rgb(40, 59, 184);
     --my_yellow: rgb(184, 165, 40);

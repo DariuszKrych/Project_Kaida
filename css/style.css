@@ -15,7 +15,7 @@
     background-size: cover;
   }
 
-#page_top, #page_middle, #page_bottom{
+#page_top, #page_middle, #page_bottom, #credits_side{
     align-self: stretch;
     display:flex;
     flex-direction: column;
@@ -38,6 +38,10 @@
 #page_bottom{
     border-image: url('../images/48x48\ Bottom\ Border.png') 16 round;
     margin-bottom: -20px;
+}
+
+#credits_side{
+    border-image: url('../images/48x48\ Credits\ Side\ Border.png') 16 round;
 }
 
 :root {

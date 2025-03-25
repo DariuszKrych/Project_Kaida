@@ -10,6 +10,10 @@ nav{
     z-index: 999;
 }
 
+nav.map_render_nav{
+    top: 60px;
+}
+
 nav ul{
     width: 100%;
     margin: 0;

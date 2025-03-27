@@ -53,7 +53,7 @@
     --my_black: rgb(20, 20, 20);
     --my_dark_grey: rgb(83, 83, 83);
     --my_light_grey: rgb(133, 133, 133);
-  }
+}
   
 
 p, h1, h2, table{
@@ -65,7 +65,7 @@ p, h1, h2, table{
     height: auto;
     border-radius: 5%;
     display: inline;
-}   
+}
 
 tr, td{
     border: 2px var(--my_black) solid;
@@ -251,4 +251,26 @@ table.rainbow::before, table.rainbow::after {
 
 .box.rainbow:hover, p.rainbow:hover, table.rainbow:hover, h1.rainbow:hover, h2.rainbow:hover{
     box-shadow: none;
+}
+
+/* Changing based on window width. */
+/* p.width_manual_limit{
+    width: 90%;
+} */
+
+p.text_size_change, table.text_size_change, .box.text_size_change{
+    font-size: 9px;
+}
+.box.text_size_change{
+    min-height: 100px;
+}
+.farm-title.text_size_change{
+    font-size: 15px;
+    margin: 0.2em;
+}
+h1.text_size_change{
+    font-size: 17px;
+}
+h2.text_size_change{
+    font-size: 15px;
 }

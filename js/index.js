@@ -65,7 +65,7 @@ window.onload = par_width_control;
 
 function par_width_control(){
   var currentWidth = window.innerWidth;
-  console.log("Window resizing detected", currentWidth);
+  // console.log("Window resizing detected", currentWidth);
 
   var WIDTH_LIMIT = 500;
   var paragraphs = document.querySelectorAll('p');
@@ -79,11 +79,9 @@ function par_width_control(){
     if (currentWidth > WIDTH_LIMIT) {
       // p.classList.remove('width_manual_limit');
       p.classList.remove('text_size_change');
-      console.log("Auto paragraph width.");
     } else {
       // p.classList.add('width_manual_limit');
       p.classList.add('text_size_change');
-      console.log("Manual 90% paragraph width.");
   }
 })
 

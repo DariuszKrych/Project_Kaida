@@ -1,3 +1,8 @@
+:root{
+	--coord_box_colour: rgba(40, 59, 184, 0.865);
+	--pure_black: rgb(0, 0, 0);
+}
+
 html {
     height: 100%;
 }
@@ -168,10 +173,10 @@ div.worldcontrol select {
 .leaflet-container .coordbox, .leaflet-container .progress {
     box-shadow: none;
     font-size: 11px;
-    background: rgba(255, 255, 255, 0.7);
+    background: var(--coord_box_colour);
     margin: 0;
     padding: 0 5px;
-    color: #333;
+    color: var(--my_black);
 }
 
 .ov-marker {

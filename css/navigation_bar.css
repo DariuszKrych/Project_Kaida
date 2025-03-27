@@ -3,9 +3,14 @@
     src: url('../fonts/Minecraft.ttf') format('truetype');
   }
 
+:root{
+    --nav_colour: rgba(40, 184, 93, 0.388);
+    --nav_hover_colour: rgba(36, 166, 86, 0.655);
+}
+
 nav{
     width: fit-content;
-    background-color: rgba(40, 184, 93, 0.388);
+    background-color: var(--nav_colour);
     backdrop-filter:blur(10px);
     box-shadow:3px 3px 5px rgb(40, 59, 184);
     /* border: solid 5px black; */
@@ -59,5 +64,5 @@ nav a{
 }
 
 nav a:hover{
-    background-color: rgba(36, 166, 86, 0.655);
+    background-color: var(--nav_hover_colour);
 }

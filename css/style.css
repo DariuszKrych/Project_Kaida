@@ -253,24 +253,28 @@ table.rainbow::before, table.rainbow::after {
     box-shadow: none;
 }
 
+
+
+
 /* Changing based on window width. */
+
 /* p.width_manual_limit{
     width: 90%;
 } */
 
 p.text_size_change, table.text_size_change, .box.text_size_change{
-    font-size: 9px;
+    font-size: 14px;
 }
 .box.text_size_change{
     min-height: 100px;
 }
 .farm-title.text_size_change{
-    font-size: 15px;
+    font-size: 19px;
     margin: 0.2em;
 }
 h1.text_size_change{
-    font-size: 17px;
+    font-size: 22px;
 }
 h2.text_size_change{
-    font-size: 15px;
+    font-size: 19px;
 }

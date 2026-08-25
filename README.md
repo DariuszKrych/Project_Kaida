@@ -4,7 +4,7 @@
 
 # Project Kaida
 
-**A hand-built, dependency-free static website that archives four years of a private Minecraft survival server —
+**A hand-built, dependency-free static website that archives three years of a private Minecraft survival server —
 its history, its builds, and 39,000+ rendered map tiles of the world itself.**
 
 [![Deploy to GitHub Pages](https://github.com/DariuszKrych/Project_Kaida/actions/workflows/static.yml/badge.svg)](https://github.com/DariuszKrych/Project_Kaida/actions/workflows/static.yml)
@@ -14,7 +14,7 @@ its history, its builds, and 39,000+ rendered map tiles of the world itself.**
 [![Leaflet](https://img.shields.io/badge/Leaflet-199900?logo=leaflet&logoColor=white)](#-tech-stack)
 [![Build](https://img.shields.io/badge/build%20step-none-success)](#-engineering-notes)
 
-**[🌍 Visit the site](https://project-kaida.github.io/site/)** · **[🧭 Guided entry point](https://project-kaida.github.io/site/welcome/)** · **[📐 Architecture](#-architecture)**
+**[🌍 Visit the site](https://project-kaida.github.io/site/welcome/)** · **[📐 Architecture](#-architecture)**
 
 <img src="images/Spawn.png" width="820" alt="Isometric render of the Project Kaida spawn area">
 
@@ -34,7 +34,7 @@ archive of roughly **2.4 GB across 39,575 rendered tiles**.
 
 | | |
 |---|---|
-| **Live site** | <https://project-kaida.github.io/site/> · <https://dariuszkrych.github.io/Project_Kaida/> |
+| **Live site** | <https://project-kaida.github.io/site/welcome/> · <https://dariuszkrych.github.io/Project_Kaida/> |
 | **Hosting** | GitHub Pages, deployed by GitHub Actions on every push to `main` |
 | **Dependencies** | None installed — Leaflet is vendored alongside the generated map renders |
 | **Server-side code** | None; the site is fully static |

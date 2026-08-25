@@ -34,7 +34,7 @@ archive of roughly **2.4 GB across 39,575 rendered tiles**.
 
 | | |
 |---|---|
-| **Live site** | <https://project-kaida.github.io/site/welcome/> · <https://dariuszkrych.github.io/Project_Kaida/> |
+| **Live site** | <https://project-kaida.github.io/site/welcome/> · <https://dariuszkrych.github.io/Project_Kaida/welcome> |
 | **Hosting** | GitHub Pages, deployed by GitHub Actions on every push to `main` |
 | **Dependencies** | None installed — Leaflet is vendored alongside the generated map renders |
 | **Server-side code** | None; the site is fully static |

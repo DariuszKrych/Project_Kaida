@@ -1,0 +1,266 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1400" width="1500" height="1400" role="img" aria-label="Project Kaida website architecture: a layered UML component and deployment view covering visitors, GitHub delivery, HTML entry points, the shared client-side layer, static assets and the offline map-rendering pipeline.">
+  <title>Project Kaida - Website Architecture</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/>
+    </marker>
+    <marker id="arrowGrey" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#666666"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b85450"/>
+    </marker>
+    <marker id="arrowGold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d6b656"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#82b366"/>
+    </marker>
+  </defs>
+
+  <style>
+    .bg     { fill: #ffffff; }
+    .band   { fill: #f9f9f9; stroke: #b3b3b3; stroke-dasharray: 6 4; }
+    .bandlb { font: 700 13px 'Segoe UI', Helvetica, Arial, sans-serif; fill: #555555; }
+    .stereo { font: italic 10px 'Segoe UI', Helvetica, Arial, sans-serif; fill: #777777; }
+    .name   { font: 700 12.5px 'Segoe UI', Helvetica, Arial, sans-serif; fill: #2b2b2b; }
+    .detail { font: 400 10px 'Segoe UI', Helvetica, Arial, sans-serif; fill: #555555; }
+    .edgelb { font: 400 10px 'Segoe UI', Helvetica, Arial, sans-serif; fill: #444444; }
+    .legend { font: 400 11px 'Segoe UI', Helvetica, Arial, sans-serif; fill: #555555; }
+    .foot   { font: 400 11px 'Segoe UI', Helvetica, Arial, sans-serif; fill: #999999; }
+    .page   { fill: #dae8fc; stroke: #6c8ebf; }
+    .js     { fill: #d5e8d4; stroke: #82b366; }
+    .css    { fill: #e1d5e7; stroke: #9673a6; }
+    .asset  { fill: #ffe6cc; stroke: #d79b00; }
+    .third  { fill: #f5f5f5; stroke: #666666; }
+    .infra  { fill: #f8cecc; stroke: #b85450; }
+    .entry  { fill: #fff2cc; stroke: #d6b656; stroke-width: 3; }
+  </style>
+
+  <rect class="bg" x="0" y="0" width="1500" height="1400"/>
+
+  <!-- Title -->
+  <rect x="40" y="30" width="1420" height="54" fill="#283bb8"/>
+  <text x="750" y="64" text-anchor="middle" font="700 22px sans-serif" style="font: 700 22px 'Segoe UI', Helvetica, Arial, sans-serif" fill="#ffffff">Project Kaida — Website Architecture</text>
+
+  <!-- Bands -->
+  <rect class="band" x="40" y="105"  width="1420" height="115" rx="8"/>
+  <text class="bandlb" x="58" y="126">1 · Visitors</text>
+  <rect class="band" x="40" y="250"  width="1420" height="165" rx="8"/>
+  <text class="bandlb" x="58" y="271">2 · Source Control &amp; Delivery</text>
+  <rect class="band" x="40" y="445"  width="1420" height="185" rx="8"/>
+  <text class="bandlb" x="58" y="466">3 · Entry Points (HTML documents)</text>
+  <rect class="band" x="40" y="660"  width="1420" height="190" rx="8"/>
+  <text class="bandlb" x="58" y="681">4 · Shared Client-Side Layer</text>
+  <rect class="band" x="40" y="880"  width="1420" height="150" rx="8"/>
+  <text class="bandlb" x="58" y="901">5 · Static Assets &amp; Generated Data</text>
+  <rect class="band" x="40" y="1060" width="1420" height="150" rx="8"/>
+  <text class="bandlb" x="58" y="1081">6 · Offline Content Pipeline (run locally, output committed)</text>
+
+  <!-- Band 1 -->
+  <rect class="entry" x="90" y="140" width="300" height="66" rx="8"/>
+  <text class="stereo" x="240" y="162" text-anchor="middle">«actor»</text>
+  <text class="name"   x="240" y="180" text-anchor="middle">CV · LinkedIn · Portfolio</text>
+  <text class="detail" x="240" y="196" text-anchor="middle">deep-links to /welcome/</text>
+
+  <rect class="third" x="560" y="140" width="320" height="66" rx="8"/>
+  <text class="stereo" x="720" y="162" text-anchor="middle">«device»</text>
+  <text class="name"   x="720" y="180" text-anchor="middle">Visitor Browser</text>
+  <text class="detail" x="720" y="196" text-anchor="middle">desktop · tablet · mobile</text>
+
+  <path d="M1050,136 h330 l20,20 v54 h-350 z" fill="#ffffff" stroke="#b3b3b3"/>
+  <path d="M1380,136 v20 h20" fill="none" stroke="#b3b3b3"/>
+  <text class="detail" x="1066" y="161">Every other URL loads with the</text>
+  <text class="detail" x="1066" y="177">hamburger menu closed — only</text>
+  <text class="detail" x="1066" y="193">/welcome/ opens it on arrival.</text>
+
+  <!-- Band 2 -->
+  <rect class="infra" x="90" y="300" width="220" height="80" rx="8"/>
+  <text class="stereo" x="200" y="322" text-anchor="middle">«repository»</text>
+  <text class="name"   x="200" y="342" text-anchor="middle">GitHub · main</text>
+  <text class="detail" x="200" y="360" text-anchor="middle">single source of truth</text>
+
+  <rect class="infra" x="360" y="300" width="330" height="80" rx="8"/>
+  <text class="stereo" x="525" y="316" text-anchor="middle">«pipeline»</text>
+  <text class="name"   x="525" y="333" text-anchor="middle">GitHub Actions</text>
+  <text class="detail" x="525" y="349" text-anchor="middle">.github/workflows/static.yml</text>
+  <text class="detail" x="525" y="362" text-anchor="middle">checkout → configure-pages →</text>
+  <text class="detail" x="525" y="375" text-anchor="middle">upload-pages-artifact → deploy-pages</text>
+
+  <rect class="infra" x="740" y="300" width="250" height="80" rx="8"/>
+  <text class="stereo" x="865" y="318" text-anchor="middle">«execution environment»</text>
+  <text class="name"   x="865" y="338" text-anchor="middle">GitHub Pages</text>
+  <text class="detail" x="865" y="356" text-anchor="middle">static hosting + CDN</text>
+  <text class="detail" x="865" y="370" text-anchor="middle">no server-side runtime</text>
+
+  <rect class="infra" x="1040" y="300" width="360" height="80" rx="8"/>
+  <text class="stereo" x="1220" y="324" text-anchor="middle">«endpoint»</text>
+  <text class="detail" x="1220" y="346" text-anchor="middle">dariuszkrych.github.io/Project_Kaida</text>
+  <text class="detail" x="1220" y="363" text-anchor="middle">project-kaida.github.io/site</text>
+
+  <!-- Band 3 -->
+  <rect class="entry" x="80" y="500" width="230" height="100" rx="8"/>
+  <text class="stereo" x="195" y="522" text-anchor="middle">«artifact»</text>
+  <text class="name"   x="195" y="542" text-anchor="middle">welcome/index.html</text>
+  <text class="detail" x="195" y="562" text-anchor="middle">served at /welcome/</text>
+  <text class="detail" x="195" y="577" text-anchor="middle">shareable entry point</text>
+  <text class="detail" x="195" y="592" text-anchor="middle">redirect stub</text>
+
+  <rect class="page" x="360" y="500" width="220" height="100" rx="8"/>
+  <text class="stereo" x="470" y="522" text-anchor="middle">«artifact»</text>
+  <text class="name"   x="470" y="542" text-anchor="middle">index.html</text>
+  <text class="detail" x="470" y="565" text-anchor="middle">server info, events, farms,</text>
+  <text class="detail" x="470" y="580" text-anchor="middle">nether networks, areas</text>
+
+  <rect class="page" x="630" y="500" width="220" height="100" rx="8"/>
+  <text class="stereo" x="740" y="522" text-anchor="middle">«artifact»</text>
+  <text class="name"   x="740" y="542" text-anchor="middle">main_bases.html</text>
+  <text class="detail" x="740" y="565" text-anchor="middle">player base gallery</text>
+
+  <rect class="page" x="900" y="500" width="200" height="100" rx="8"/>
+  <text class="stereo" x="1000" y="522" text-anchor="middle">«artifact»</text>
+  <text class="name"   x="1000" y="542" text-anchor="middle">credits.html</text>
+  <text class="detail" x="1000" y="565" text-anchor="middle">tooling &amp; player credits</text>
+
+  <rect class="page" x="1150" y="500" width="250" height="100" rx="8"/>
+  <text class="stereo" x="1275" y="522" text-anchor="middle">«artifact»</text>
+  <text class="name"   x="1275" y="542" text-anchor="middle">overviewerRenders/…/*.html</text>
+  <text class="detail" x="1275" y="565" text-anchor="middle">5 Leaflet map pages</text>
+  <text class="detail" x="1275" y="580" text-anchor="middle">Y0 day → Y2 night</text>
+
+  <!-- Band 4 -->
+  <rect class="js" x="70" y="710" width="210" height="110" rx="8"/>
+  <text class="stereo" x="175" y="734" text-anchor="middle">«component»</text>
+  <text class="name"   x="175" y="756" text-anchor="middle">js/navigation_bar.js</text>
+  <text class="detail" x="175" y="778" text-anchor="middle">showSidebar / closeSidebar</text>
+  <text class="detail" x="175" y="794" text-anchor="middle">applies ?nav=open on load</text>
+
+  <rect class="js" x="300" y="710" width="210" height="110" rx="8"/>
+  <text class="stereo" x="405" y="734" text-anchor="middle">«component»</text>
+  <text class="name"   x="405" y="756" text-anchor="middle">js/index.js</text>
+  <text class="detail" x="405" y="778" text-anchor="middle">click-to-rainbow effects,</text>
+  <text class="detail" x="405" y="794" text-anchor="middle">responsive text sizing</text>
+
+  <rect class="js" x="530" y="710" width="210" height="110" rx="8"/>
+  <text class="stereo" x="635" y="734" text-anchor="middle">«component»</text>
+  <text class="name"   x="635" y="756" text-anchor="middle">js/time_since_pk.js</text>
+  <text class="detail" x="635" y="778" text-anchor="middle">live server-age counter</text>
+  <text class="detail" x="635" y="794" text-anchor="middle">since 18 Oct 2023</text>
+
+  <rect class="third" x="760" y="710" width="210" height="110" rx="8"/>
+  <text class="stereo" x="865" y="734" text-anchor="middle">«library»</text>
+  <text class="name"   x="865" y="756" text-anchor="middle">leaflet.js · overviewer.js</text>
+  <text class="detail" x="865" y="778" text-anchor="middle">vendored map viewer,</text>
+  <text class="detail" x="865" y="794" text-anchor="middle">one copy per render</text>
+
+  <rect class="css" x="990" y="710" width="210" height="110" rx="8"/>
+  <text class="stereo" x="1095" y="734" text-anchor="middle">«component»</text>
+  <text class="name"   x="1095" y="756" text-anchor="middle">css/style.css</text>
+  <text class="detail" x="1095" y="778" text-anchor="middle">flex layout, animated</text>
+  <text class="detail" x="1095" y="794" text-anchor="middle">conic-gradient borders</text>
+
+  <rect class="css" x="1220" y="710" width="210" height="110" rx="8"/>
+  <text class="stereo" x="1325" y="734" text-anchor="middle">«component»</text>
+  <text class="name"   x="1325" y="756" text-anchor="middle">css/navigation_bar.css</text>
+  <text class="detail" x="1325" y="778" text-anchor="middle">fixed nav; sidebar</text>
+  <text class="detail" x="1325" y="794" text-anchor="middle">hidden by default</text>
+
+  <!-- Band 5 -->
+  <rect class="asset" x="125" y="925" width="290" height="80" rx="8"/>
+  <text class="name"   x="270" y="955" text-anchor="middle">images/</text>
+  <text class="detail" x="270" y="975" text-anchor="middle">screenshots, UI borders,</text>
+  <text class="detail" x="270" y="991" text-anchor="middle">menu icons, favicon</text>
+
+  <rect class="asset" x="445" y="925" width="290" height="80" rx="8"/>
+  <text class="name"   x="590" y="955" text-anchor="middle">fonts/</text>
+  <text class="detail" x="590" y="975" text-anchor="middle">Minecraft.ttf</text>
+  <text class="detail" x="590" y="991" text-anchor="middle">Minecraftia-Regular.ttf</text>
+
+  <rect class="asset" x="765" y="925" width="290" height="80" rx="8"/>
+  <text class="name"   x="910" y="955" text-anchor="middle">overviewerRenders/…/overworld/</text>
+  <text class="detail" x="910" y="975" text-anchor="middle">quadtree PNG tile pyramid</text>
+  <text class="detail" x="910" y="991" text-anchor="middle">(tens of thousands of tiles)</text>
+
+  <rect class="asset" x="1085" y="925" width="290" height="80" rx="8"/>
+  <text class="name"   x="1230" y="955" text-anchor="middle">overviewerConfig.js · baseMarkers.js</text>
+  <text class="detail" x="1230" y="978" text-anchor="middle">render metadata &amp; map markers</text>
+
+  <!-- Band 6 -->
+  <rect class="third" x="130" y="1105" width="280" height="80" rx="8"/>
+  <text class="stereo" x="270" y="1127" text-anchor="middle">«input»</text>
+  <text class="name"   x="270" y="1148" text-anchor="middle">Minecraft Java world save</text>
+  <text class="detail" x="270" y="1167" text-anchor="middle">Project Kaida server</text>
+
+  <rect class="third" x="450" y="1105" width="280" height="80" rx="8"/>
+  <text class="stereo" x="590" y="1127" text-anchor="middle">«tool»</text>
+  <text class="name"   x="590" y="1148" text-anchor="middle">MCA Selector</text>
+  <text class="detail" x="590" y="1167" text-anchor="middle">chunk trimming &amp; prep</text>
+
+  <rect class="third" x="770" y="1105" width="280" height="80" rx="8"/>
+  <text class="stereo" x="910" y="1127" text-anchor="middle">«tool»</text>
+  <text class="name"   x="910" y="1148" text-anchor="middle">Minecraft Overviewer</text>
+  <text class="detail" x="910" y="1167" text-anchor="middle">Greg's fork · isometric tile render</text>
+
+  <rect class="third" x="1090" y="1105" width="280" height="80" rx="8"/>
+  <text class="stereo" x="1230" y="1127" text-anchor="middle">«output»</text>
+  <text class="name"   x="1230" y="1148" text-anchor="middle">Committed to the repository</text>
+  <text class="detail" x="1230" y="1167" text-anchor="middle">overviewerRenders/…</text>
+
+  <!-- Edges -->
+  <line x1="390" y1="173" x2="552" y2="173" stroke="#d6b656" stroke-width="2" marker-end="url(#arrowGold)"/>
+  <text class="edgelb" x="471" y="167" text-anchor="middle">opens</text>
+
+  <line x1="720" y1="206" x2="720" y2="242" stroke="#666666" stroke-width="2" marker-end="url(#arrowGrey)"/>
+  <text class="edgelb" x="730" y="230">HTTPS GET</text>
+
+  <line x1="310" y1="340" x2="352" y2="340" stroke="#b85450" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text class="edgelb" x="331" y="399" text-anchor="middle">push to main</text>
+
+  <line x1="690" y1="340" x2="732" y2="340" stroke="#b85450" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text class="edgelb" x="711" y="399" text-anchor="middle">deploy artifact</text>
+
+  <line x1="990" y1="340" x2="1032" y2="340" stroke="#b85450" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text class="edgelb" x="1011" y="399" text-anchor="middle">published at</text>
+
+  <line x1="865" y1="380" x2="865" y2="437" stroke="#666666" stroke-width="2" marker-end="url(#arrowGrey)"/>
+  <text class="edgelb" x="877" y="418">serves static files</text>
+
+  <line x1="310" y1="550" x2="352" y2="550" stroke="#d6b656" stroke-width="3" marker-end="url(#arrowGold)"/>
+  <text class="edgelb" x="345" y="617" text-anchor="end">JS redirect → index.html?nav=open</text>
+
+  <line x1="450" y1="600" x2="205" y2="702" stroke="#82b366" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowGreen)"/>
+  <text class="edgelb" x="300" y="653" text-anchor="end">reads ?nav=open → sidebar opens</text>
+
+  <line x1="1105" y1="630" x2="1105" y2="652" stroke="#666666" stroke-width="2" marker-end="url(#arrowGrey)"/>
+  <text class="edgelb" x="1093" y="648" text-anchor="end">every page loads the shared scripts &amp; stylesheets</text>
+
+  <line x1="750" y1="850" x2="750" y2="872" stroke="#666666" stroke-width="2" marker-end="url(#arrowGrey)"/>
+  <text class="edgelb" x="738" y="868" text-anchor="end">requests images, fonts and map tiles</text>
+
+  <line x1="750" y1="1060" x2="750" y2="1038" stroke="#666666" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrowGrey)"/>
+  <text class="edgelb" x="764" y="1052">regenerated per map year, then committed</text>
+
+  <line x1="410" y1="1145" x2="442" y2="1145" stroke="#666666" stroke-width="2" marker-end="url(#arrowGrey)"/>
+  <line x1="730" y1="1145" x2="762" y2="1145" stroke="#666666" stroke-width="2" marker-end="url(#arrowGrey)"/>
+  <line x1="1050" y1="1145" x2="1082" y2="1145" stroke="#666666" stroke-width="2" marker-end="url(#arrowGrey)"/>
+
+  <!-- Legend -->
+  <rect x="40" y="1240" width="1420" height="70" rx="8" fill="#ffffff" stroke="#b3b3b3"/>
+  <text class="bandlb" x="58" y="1261">Legend</text>
+  <rect class="page"  x="60"   y="1276" width="18" height="18"/>
+  <text class="legend" x="86"   y="1289">HTML page</text>
+  <rect class="js"    x="260"  y="1276" width="18" height="18"/>
+  <text class="legend" x="286"  y="1289">JavaScript module</text>
+  <rect class="css"   x="460"  y="1276" width="18" height="18"/>
+  <text class="legend" x="486"  y="1289">Stylesheet</text>
+  <rect class="asset" x="660"  y="1276" width="18" height="18"/>
+  <text class="legend" x="686"  y="1289">Static asset / data</text>
+  <rect class="third" x="860"  y="1276" width="18" height="18"/>
+  <text class="legend" x="886"  y="1289">Third-party tool / library</text>
+  <rect class="infra" x="1060" y="1276" width="18" height="18"/>
+  <text class="legend" x="1086" y="1289">Hosting &amp; delivery</text>
+  <rect class="entry" x="1260" y="1276" width="18" height="18"/>
+  <text class="legend" x="1286" y="1289">Shareable entry point</text>
+
+  <text class="foot" x="750" y="1340" text-anchor="middle">UML component &amp; deployment view · source: docs/architecture.drawio · editable at app.diagrams.net</text>
+</svg>
